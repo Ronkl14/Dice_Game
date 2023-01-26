@@ -10,6 +10,9 @@ const newGame = document.querySelector(".new-game");
 const hold = document.querySelector(".hold");
 const roll = document.querySelector(".roll");
 
+const goalPoints = 100;
+let gameOver = false;
+
 let oneIsPlaying = true;
 let currentScores = [
   Number(playerOneCurrent.innerText),
@@ -56,6 +59,8 @@ function holdScore() {
   playerOneScore.innerText = totalScores[0];
   playerTwoScore.innerText = totalScores[1];
   resetCurrents();
+  checkWin(oneIsPlaying);
+  resetTotals(gameOver);
   changePlayer();
 }
 
@@ -67,6 +72,36 @@ function resetCurrents() {
 
 function changePlayer() {
   oneIsPlaying = !oneIsPlaying;
+}
+
+function checkWin(whoPressedHold) {
+  if (whoPressedHold) {
+    if (totalScores[0] === goalPoints) {
+      console.log("Player 1 wins!");
+      gameOver = true;
+    }
+    if (totalScores[0] > goalPoints) {
+      console.log("Player 2 wins!");
+      gameOver = true;
+    }
+  } else {
+    if (totalScores[1] === goalPoints) {
+      console.log("Player 2 wins!");
+      gameOver = true;
+    }
+    if (totalScores[1] > goalPoints) {
+      console.log("Player 1 wins!");
+      gameOver = true;
+    }
+  }
+}
+
+function resetTotals(gameOver) {
+  if (gameOver) {
+    totalScores = [0, 0];
+    playerOneScore.innerText = 0;
+    playerTwoScore.innerText = 0;
+  }
 }
 
 let diceArray1;
