@@ -31,7 +31,7 @@ body {
 }
 
 .center-area {
-  width: 2%;
+  width: .01%;
   height: 100%;
   display:flex;
   flex-direction: column;
