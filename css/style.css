@@ -1,0 +1,58 @@
+div {
+  border: 2px solid black;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.game-container {
+  display: flex;
+  width: 50vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.player1-area,
+.player2-area {
+  width: 49%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 3rem 0;
+}
+
+.center-area {
+  width: 2%;
+  height: 100%;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border:none;
+}
+
+.die1, .die2 {
+    width:6rem;
+    height:6rem;
+    margin: 2rem;
+    z-index:10;
+}
+
+.die1 img, .die2 img {
+    width:100%;
+    
+}
+
+.btn {
+    width:6rem;
+    z-index:10;
+}

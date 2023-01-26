@@ -1,15 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <title>Dice Game</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <div class="game-container">
+      <div class="player1-area">
+        <div class="header-player1">
+          <h1>KELEV YAM 1</h1>
+          <h2 class="player1-total">0</h2>
+        </div>
+        <div class="current-player1">
+          <p>Current</p>
+          <p class="player1-current-score">0</p>
+        </div>
+      </div>
+      <div class="center-area">
+        <button class="btn new-game">New Game</button>
+        <div class="die1">
+          <img src="/assets/img/dice-1.png" alt="" />
+        </div>
+        <div class="die2">
+          <img src="/assets/img/dice-4.png" alt="" />
+        </div>
+        <button class="btn roll">Roll Dice</button>
+        <button class="btn hold">Hold</button>
+      </div>
+      <div class="player2-area">
+        <div class="header-player2">
+          <h1>KELEV YAM 2</h1>
+          <h2 class="player2-total">0</h2>
+        </div>
+        <div class="current-player2">
+          <p>Current</p>
+          <p class="player2-current-score">0</p>
+        </div>
+      </div>
+    </div>
+    <script src='script.js' defer></script>
+  </body>
 </html>
