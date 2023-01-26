@@ -1,5 +1,8 @@
 "use strict";
 
+const playArea = document.querySelector('.game-container');
+const playerOneArea = document.querySelector(".player1-area");
+const playerTwoArea = document.querySelector(".player2-area");
 const playerOneScore = document.querySelector(".player1-total");
 const playerTwoScore = document.querySelector(".player2-total");
 const playerOneCurrent = document.querySelector(".player1-current-score");
@@ -10,6 +13,8 @@ const newGame = document.querySelector(".new-game");
 const hold = document.querySelector(".hold");
 const roll = document.querySelector(".roll");
 
+let diceArray1;
+let diceArray2;
 const goalPoints = 100;
 let gameOver = false;
 
@@ -60,7 +65,6 @@ function holdScore() {
   playerTwoScore.innerText = totalScores[1];
   resetCurrents();
   checkWin(oneIsPlaying);
-  resetTotals(gameOver);
   changePlayer();
 }
 
@@ -72,6 +76,17 @@ function resetCurrents() {
 
 function changePlayer() {
   oneIsPlaying = !oneIsPlaying;
+  changeBackground();
+}
+
+function changeBackground() {
+  if (oneIsPlaying) {
+    playerOneArea.style.backgroundColor = "salmon";
+    playerTwoArea.style.backgroundColor = "white";
+  } else {
+    playerTwoArea.style.backgroundColor = "salmon";
+    playerOneArea.style.backgroundColor = "white";
+  }
 }
 
 function checkWin(whoPressedHold) {
@@ -96,6 +111,7 @@ function checkWin(whoPressedHold) {
   }
 }
 
+//change this for new game
 function resetTotals(gameOver) {
   if (gameOver) {
     totalScores = [0, 0];
@@ -104,8 +120,6 @@ function resetTotals(gameOver) {
   }
 }
 
-let diceArray1;
-let diceArray2;
 diceArray1 = createDice();
 diceArray2 = createDice();
 

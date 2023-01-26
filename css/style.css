@@ -22,12 +22,16 @@ body {
 
 .player1-area,
 .player2-area {
-  width: 49%;
+  width: 50%;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 3rem 0;
+}
+
+.player1-area {
+    background-color: salmon;
 }
 
 .center-area {
