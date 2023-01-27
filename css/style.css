@@ -1,5 +1,5 @@
 div {
-  border: 2px solid black;
+  /* border: 2px solid black; */
 }
 
 body {
@@ -9,14 +9,26 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+  background-color: #bbbbbb;
+  color: white;
 }
 
 .hide {
-    display: none;
+  display: none;
 }
 
 .active {
-    background-color: salmon;
+  background-color: #393e46;
+}
+
+.btn {
+  z-index: 10;
+  white-space: nowrap;
+  padding: .5rem 0;
+  width: 7rem;
+  border:1px solid rgba(0,0,0,0.1);
+  border-radius: 6px;
+  margin: 3rem;
 }
 
 .game-container {
@@ -26,7 +38,8 @@ body {
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  position:relative;
+  position: relative;
+  background-color: #222831;
 }
 
 .player1-area,
@@ -40,42 +53,39 @@ body {
 }
 
 .center-area {
-  width: .01%;
+  width: 0.01%;
   height: 100%;
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border:none;
+  border: none;
 }
 
-.die1, .die2 {
-    width:6rem;
-    height:6rem;
-    margin: 2rem;
-    z-index:10;
+.die1,
+.die2 {
+  width: 6rem;
+  height: 6rem;
+  margin: 1rem;
+  z-index: 10;
 }
 
-.die1 img, .die2 img {
-    width:100%;
-    
+.die1 img,
+.die2 img {
+  width: 100%;
 }
 
-.btn {
-    width:6rem;
-    z-index:10;
-}
+
 
 .opening-screen {
-    position: absolute;
-    z-index: 11;
-    width: 80%;
-    height: 85%;
-    background-color: aqua;
+  color: black;
+  position: absolute;
+  z-index: 11;
+  width: 80%;
+  height: 85%;
+  background-color: #b3b3b3;
 }
 
 .win {
-    background-color: greenyellow;
+  background-color: #00adb5;
 }
-
-
