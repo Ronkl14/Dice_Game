@@ -9,10 +9,6 @@ body {
   color: white;
 }
 
-.hide {
-  display: none;
-}
-
 .active {
   background-color: #393e46;
   border-radius: 5px;
@@ -21,11 +17,16 @@ body {
 .btn {
   z-index: 10;
   white-space: nowrap;
-  padding: .5rem 0;
+  padding: 0.5rem 0;
   width: 7rem;
-  border:1px solid rgba(0,0,0,0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 6px;
   margin: 3rem;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: #e7e7e7; 
 }
 
 .game-container {
@@ -86,4 +87,31 @@ body {
 .win {
   background-color: #00adb5;
   border-radius: 5px;
+}
+
+.opening-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 5px;
+}
+
+.bottom-opening {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  width: 15%;
+  padding: .3rem 0;
+}
+
+.hide {
+  display: none;
+}
+
+.start {
+    margin:.5rem;
 }

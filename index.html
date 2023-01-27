@@ -12,10 +12,29 @@
   <body>
     <div class="game-container">
       <div class="opening-screen">
-        <p>Welcome!</p>
-        <p>Rules...</p>
-        <input type="number" class="target-score">
-        <button class="btn start">Start Game</button>
+        <div class="top-opening">
+          <h1>Welcome to Dice Game</h1>
+          <h2>Game rules:</h2>
+          <ul>
+            <li>
+              In your turn - roll the dice and accumulate the result in
+              'current'
+            </li>
+            <li>
+              You can roll again or click 'Hold' to save the points from
+              'current' and end the turn
+            </li>
+            <li>
+              If you managed to reach exactly the target score - you win, if you
+              passed it - you lose
+            </li>
+          </ul>
+        </div>
+        <div class="bottom-opening">
+          <h3>Please select a target score</h3>
+          <input type="number" class="target-score" />
+          <button class="btn start">Start Game</button>
+        </div>
       </div>
       <div class="player1-area active">
         <div class="header-player1">
