@@ -1,6 +1,7 @@
 "use strict";
 
-const playArea = document.querySelector('.game-container');
+const targetScore = document.querySelector(".target-score");
+const openingScreen = document.querySelector(".opening-screen");
 const playerOneArea = document.querySelector(".player1-area");
 const playerTwoArea = document.querySelector(".player2-area");
 const playerOneScore = document.querySelector(".player1-total");
@@ -9,13 +10,14 @@ const playerOneCurrent = document.querySelector(".player1-current-score");
 const playerTwoCurrent = document.querySelector(".player2-current-score");
 const dieOne = document.querySelector(".die1");
 const dieTwo = document.querySelector(".die2");
+const startGame = document.querySelector(".start");
 const newGame = document.querySelector(".new-game");
 const hold = document.querySelector(".hold");
 const roll = document.querySelector(".roll");
 
 let diceArray1;
 let diceArray2;
-const goalPoints = 100;
+let goalPoints;
 let gameOver = false;
 
 let oneIsPlaying = true;
@@ -36,6 +38,17 @@ function createDice() {
     diceArray[i] = die;
   }
   return diceArray;
+}
+
+function hideOpeningScreen() {
+  openingScreen.classList.toggle("hide");
+  goalPoints = setTargetScore();
+  oneIsPlaying = true;
+  playerOneArea.classList.contains('active') ? '' : changeBackground();
+}
+
+function setTargetScore() {
+    return targetScore.value;
 }
 
 function rollDice() {
@@ -80,13 +93,8 @@ function changePlayer() {
 }
 
 function changeBackground() {
-  if (oneIsPlaying) {
-    playerOneArea.style.backgroundColor = "salmon";
-    playerTwoArea.style.backgroundColor = "white";
-  } else {
-    playerTwoArea.style.backgroundColor = "salmon";
-    playerOneArea.style.backgroundColor = "white";
-  }
+    playerOneArea.classList.toggle("active");
+    playerTwoArea.classList.toggle("active");
 }
 
 function checkWin(whoPressedHold) {
@@ -111,17 +119,22 @@ function checkWin(whoPressedHold) {
   }
 }
 
-//change this for new game
-function resetTotals(gameOver) {
-  if (gameOver) {
-    totalScores = [0, 0];
-    playerOneScore.innerText = 0;
-    playerTwoScore.innerText = 0;
-  }
+function resetTotals() {
+  totalScores = [0, 0];
+  playerOneScore.innerText = 0;
+  playerTwoScore.innerText = 0;
+}
+
+function resetGame() {
+  openingScreen.classList.toggle("hide");
+  resetCurrents();
+  resetTotals();
 }
 
 diceArray1 = createDice();
 diceArray2 = createDice();
 
+startGame.addEventListener("click", hideOpeningScreen);
 roll.addEventListener("click", rollDice);
 hold.addEventListener("click", holdScore);
+newGame.addEventListener("click", resetGame);
