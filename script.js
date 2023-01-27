@@ -8,6 +8,8 @@ const playerOneScore = document.querySelector(".player1-total");
 const playerTwoScore = document.querySelector(".player2-total");
 const playerOneCurrent = document.querySelector(".player1-current-score");
 const playerTwoCurrent = document.querySelector(".player2-current-score");
+const playerOneWinMessage = document.querySelector(".player1-winner");
+const playerTwoWinMessage = document.querySelector(".player2-winner");
 const dieOne = document.querySelector(".die1");
 const dieTwo = document.querySelector(".die2");
 const startGame = document.querySelector(".start");
@@ -44,11 +46,19 @@ function hideOpeningScreen() {
   openingScreen.classList.toggle("hide");
   goalPoints = setTargetScore();
   oneIsPlaying = true;
-  playerOneArea.classList.contains('active') ? '' : changeBackground();
+  gameOver = false;
+  playerOneArea.classList.add("active");
+  playerTwoArea.classList.remove("active");
+  playerOneArea.classList.remove("win");
+  playerTwoArea.classList.remove("win");
+  playerOneWinMessage.classList.add('hide');
+  playerTwoWinMessage.classList.add('hide');
+  roll.disabled = false;
+  hold.disabled = false;
 }
 
 function setTargetScore() {
-    return targetScore.value;
+  return Number(targetScore.value);
 }
 
 function rollDice() {
@@ -78,7 +88,7 @@ function holdScore() {
   playerTwoScore.innerText = totalScores[1];
   resetCurrents();
   checkWin(oneIsPlaying);
-  changePlayer();
+  gameOver ? disableButtons() : changePlayer();
 }
 
 function resetCurrents() {
@@ -93,30 +103,48 @@ function changePlayer() {
 }
 
 function changeBackground() {
-    playerOneArea.classList.toggle("active");
-    playerTwoArea.classList.toggle("active");
+  playerOneArea.classList.toggle("active");
+  playerTwoArea.classList.toggle("active");
 }
 
 function checkWin(whoPressedHold) {
   if (whoPressedHold) {
     if (totalScores[0] === goalPoints) {
-      console.log("Player 1 wins!");
+      removeActive();
+      playerOneArea.classList.toggle("win");
+      playerOneWinMessage.classList.toggle("hide");
       gameOver = true;
     }
     if (totalScores[0] > goalPoints) {
-      console.log("Player 2 wins!");
+      removeActive();
+      playerTwoArea.classList.toggle("win");
+      playerTwoWinMessage.classList.toggle("hide");
       gameOver = true;
     }
   } else {
     if (totalScores[1] === goalPoints) {
-      console.log("Player 2 wins!");
+      removeActive();
+      playerTwoArea.classList.toggle("win");
+      playerTwoWinMessage.classList.toggle("hide");
       gameOver = true;
     }
     if (totalScores[1] > goalPoints) {
-      console.log("Player 1 wins!");
+      removeActive();
+      playerOneArea.classList.toggle("win");
+      playerOneWinMessage.classList.toggle("hide");
       gameOver = true;
     }
   }
+}
+
+function disableButtons() {
+    roll.disabled = true;
+    hold.disabled = true;
+}
+
+function removeActive() {
+  playerOneArea.classList.remove("active");
+  playerTwoArea.classList.remove("active");
 }
 
 function resetTotals() {
