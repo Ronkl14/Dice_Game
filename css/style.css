@@ -134,3 +134,9 @@ input {
   color: red;
   font-size: 1.1rem;
 }
+
+@media screen and (max-width:1024px) {
+    .game-container {
+        width:90vw;
+    }
+}
