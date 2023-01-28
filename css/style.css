@@ -133,22 +133,22 @@ input {
 }
 
 .six-gif {
-    position: absolute;
-    z-index: 12;
+  position: absolute;
+  z-index: 12;
 }
 
-@media screen and (max-width:1024px) {
-    .game-container {
-        width:90vw;
-    }
+@media screen and (max-width: 1024px) {
+  .game-container {
+    width: 90vw;
+  }
 }
 
-@media screen and (max-width:500px) {
-    .opening-screen {
-        padding:1rem;
-    }
+@media screen and (max-width: 500px) {
+  .opening-screen {
+    padding: 1rem;
+  }
 
-    input {
-        width: 20%;
-    }
+  input {
+    width: 20%;
+  }
 }
