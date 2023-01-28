@@ -23,8 +23,7 @@ let diceArray1;
 let diceArray2;
 let goalPoints;
 let gameOver = false;
-
-let oneIsPlaying = true;
+let oneIsPlaying;
 let currentScores = [
   Number(playerOneCurrent.innerText),
   Number(playerTwoCurrent.innerText),
@@ -83,8 +82,8 @@ function rollDice() {
 function rolledDoubleSix() {
   resetCurrents();
   changePlayer();
-  sixGif.classList.remove('hide');
-  setTimeout(() => sixGif.classList.add('hide'), 1000);
+  sixGif.classList.remove("hide");
+  setTimeout(() => sixGif.classList.add("hide"), 1000);
 }
 
 function updateCurrent(score) {
@@ -111,17 +110,6 @@ function resetCurrents() {
   currentScores = [0, 0];
   playerOneCurrent.innerText = 0;
   playerTwoCurrent.innerText = 0;
-}
-
-function changePlayer() {
-  oneIsPlaying = !oneIsPlaying;
-  changeBackground();
-  hold.disabled = true;
-}
-
-function changeBackground() {
-  playerOneArea.classList.toggle("active");
-  playerTwoArea.classList.toggle("active");
 }
 
 function checkWin(whoPressedHold) {
@@ -153,6 +141,16 @@ function checkWin(whoPressedHold) {
     }
   }
 }
+function changePlayer() {
+  oneIsPlaying = !oneIsPlaying;
+  changeBackground();
+  hold.disabled = true;
+}
+
+function changeBackground() {
+  playerOneArea.classList.toggle("active");
+  playerTwoArea.classList.toggle("active");
+}
 
 function disableButtons() {
   roll.disabled = true;
@@ -164,17 +162,17 @@ function removeActive() {
   playerTwoArea.classList.remove("active");
 }
 
-function resetTotals() {
-  totalScores = [0, 0];
-  playerOneScore.innerText = 0;
-  playerTwoScore.innerText = 0;
-}
-
 function resetGame() {
   targetScore.value = "";
   openingScreen.classList.toggle("hide");
   resetCurrents();
   resetTotals();
+}
+
+function resetTotals() {
+  totalScores = [0, 0];
+  playerOneScore.innerText = 0;
+  playerTwoScore.innerText = 0;
 }
 
 diceArray1 = createDice();
