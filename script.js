@@ -17,6 +17,7 @@ const startGame = document.querySelector(".start");
 const newGame = document.querySelector(".new-game");
 const hold = document.querySelector(".hold");
 const roll = document.querySelector(".roll");
+const sixGif = document.querySelector(".six-gif");
 
 let diceArray1;
 let diceArray2;
@@ -76,7 +77,14 @@ function rollDice() {
   dieOne.appendChild(diceArray1[die1 - 1]);
   dieTwo.textContent = "";
   dieTwo.appendChild(diceArray2[die2 - 1]);
-  updateCurrent(die1 + die2);
+  die1 + die2 !== 12 ? updateCurrent(die1 + die2) : rolledDoubleSix();
+}
+
+function rolledDoubleSix() {
+  resetCurrents();
+  changePlayer();
+  sixGif.classList.remove('hide');
+  setTimeout(() => sixGif.classList.add('hide'), 1000);
 }
 
 function updateCurrent(score) {
