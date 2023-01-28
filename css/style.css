@@ -29,6 +29,10 @@ body {
   background-color: #e7e7e7;
 }
 
+.btn:hover:disabled {
+  background-color: #707379;
+}
+
 .game-container {
   display: flex;
   width: 50vw;
@@ -126,7 +130,7 @@ input {
 }
 
 .error {
-    font-weight: bold;
-    color:red;
-    font-size: 1.1rem;
+  font-weight: bold;
+  color: red;
+  font-size: 1.1rem;
 }
