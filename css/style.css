@@ -140,3 +140,13 @@ input {
         width:90vw;
     }
 }
+
+@media screen and (max-width:500px) {
+    .opening-screen {
+        padding:1rem;
+    }
+
+    input {
+        width: 20%;
+    }
+}
