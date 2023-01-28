@@ -18,5 +18,5 @@ Screenshots:
 Desktop version:
 ![Screenshot 2023-01-28 183126](https://user-images.githubusercontent.com/121381849/215278038-0f805090-e9a5-42bf-bd66-09ac5f56c6d7.png)
 
-Mobile version:
-![WhatsApp Image 2023-01-28 at 18 32 47](https://user-images.githubusercontent.com/121381849/215278057-1c657255-84c6-4cdc-9103-98381b028066.jpeg)
+Mobile version: <br>
+![WhatsApp Image 2023-01-28 at 18 32 47 (Small)](https://user-images.githubusercontent.com/121381849/215278311-bd9cc243-ad1a-4f3a-83f3-4ebabde4fe9a.jpeg)
