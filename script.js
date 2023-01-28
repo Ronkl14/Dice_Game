@@ -1,6 +1,7 @@
 "use strict";
 
 const targetScore = document.querySelector(".target-score");
+const errorTarget = document.querySelector(".error");
 const openingScreen = document.querySelector(".opening-screen");
 const playerOneArea = document.querySelector(".player1-area");
 const playerTwoArea = document.querySelector(".player2-area");
@@ -43,6 +44,7 @@ function createDice() {
 }
 
 function hideOpeningScreen() {
+  errorTarget.classList.add("hide");
   openingScreen.classList.toggle("hide");
   goalPoints = setTargetScore();
   oneIsPlaying = true;
@@ -51,14 +53,19 @@ function hideOpeningScreen() {
   playerTwoArea.classList.remove("active");
   playerOneArea.classList.remove("win");
   playerTwoArea.classList.remove("win");
-  playerOneWinMessage.classList.add('hide');
-  playerTwoWinMessage.classList.add('hide');
+  playerOneWinMessage.classList.add("hide");
+  playerTwoWinMessage.classList.add("hide");
   roll.disabled = false;
   hold.disabled = false;
 }
 
 function setTargetScore() {
-  return Number(targetScore.value);
+  if (Number(targetScore.value) >= 20 && Number(targetScore.value) <= 1000) {
+    return Number(targetScore.value);
+  } else {
+    errorTarget.classList.remove("hide");
+    openingScreen.classList.remove("hide");
+  }
 }
 
 function rollDice() {
@@ -138,8 +145,8 @@ function checkWin(whoPressedHold) {
 }
 
 function disableButtons() {
-    roll.disabled = true;
-    hold.disabled = true;
+  roll.disabled = true;
+  hold.disabled = true;
 }
 
 function removeActive() {
@@ -154,6 +161,7 @@ function resetTotals() {
 }
 
 function resetGame() {
+  targetScore.value = "";
   openingScreen.classList.toggle("hide");
   resetCurrents();
   resetTotals();
