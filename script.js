@@ -43,7 +43,7 @@ function createDice() {
   return diceArray;
 }
 
-function hideOpeningScreen() {
+function start() {
   errorTarget.classList.add("hide");
   openingScreen.classList.toggle("hide");
   goalPoints = setTargetScore();
@@ -172,7 +172,7 @@ function resetGame() {
 diceArray1 = createDice();
 diceArray2 = createDice();
 
-startGame.addEventListener("click", hideOpeningScreen);
+startGame.addEventListener("click", start);
 roll.addEventListener("click", rollDice);
 hold.addEventListener("click", holdScore);
 newGame.addEventListener("click", resetGame);
