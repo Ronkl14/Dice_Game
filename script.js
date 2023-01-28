@@ -56,7 +56,7 @@ function hideOpeningScreen() {
   playerOneWinMessage.classList.add("hide");
   playerTwoWinMessage.classList.add("hide");
   roll.disabled = false;
-  hold.disabled = false;
+  hold.disabled = true;
 }
 
 function setTargetScore() {
@@ -69,6 +69,7 @@ function setTargetScore() {
 }
 
 function rollDice() {
+  hold.disabled = false;
   const die1 = Math.floor(Math.random() * 6 + 1);
   const die2 = Math.floor(Math.random() * 6 + 1);
   dieOne.textContent = "";
@@ -107,6 +108,7 @@ function resetCurrents() {
 function changePlayer() {
   oneIsPlaying = !oneIsPlaying;
   changeBackground();
+  hold.disabled = true;
 }
 
 function changeBackground() {
