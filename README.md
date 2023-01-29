@@ -13,6 +13,8 @@ The rules of the game are:
 Every player rolls at least once and as many times as he wants, at each point he can choose to hold his score and pass the turn. The player that get exactly as much points as the target score wins, if a player passes the target score he loses.
 If a player rolls double 6, his current points are lost and the turn passes.
 
+the project has been deployed to Netlify: https://mydicegame-ronk.netlify.app/
+
 Screenshots:
 
 Desktop version:
